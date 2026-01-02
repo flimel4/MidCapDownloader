@@ -25,6 +25,7 @@ android {
         }
     }
 
+    // 🔥 Java + Kotlin 17 (povinné pre AGP 8.x)
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -32,6 +33,13 @@ android {
 
     kotlinOptions {
         jvmTarget = "17"
+    }
+
+    // 🔥 Toto je kritické — bez tohto javac stále používa 1.8
+    java {
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(17))
+        }
     }
 }
 
