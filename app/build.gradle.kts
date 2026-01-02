@@ -1,6 +1,6 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id("com.android.application") version "8.5.2"
+    id("org.jetbrains.kotlin.android") version "2.0.20"
 }
 
 android {
@@ -25,7 +25,6 @@ android {
         }
     }
 
-    // 🔥 Java + Kotlin 17 (povinné pre AGP 8.x)
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -35,7 +34,6 @@ android {
         jvmTarget = "17"
     }
 
-    // 🔥 Toto je kritické — bez tohto javac stále používa 1.8
     java {
         toolchain {
             languageVersion.set(JavaLanguageVersion.of(17))
